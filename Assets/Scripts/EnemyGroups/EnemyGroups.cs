@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGroups : MonoBehaviour
+public class EnemyGroups : BaseGroup
 {
     public EnemyShip ship1;
     public EnemyShip ship2;
     public EnemyShip ship3; 
-    public bool Alive = true;
     private float speed = 0.1f;
     private int direction = -1;
     private List<EnemyShip> ships = new List<EnemyShip>();

@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelBaby : MonoBehaviour
 {
     public GameObject OriginalShip;
-    public GameObject EnemyGroup;
+     public GameObject EnemyGroup;
+    public GameObject RamGroup;
     Vector3 groupPosition = new Vector3(-0.145f,3.7f,0);
     Vector3 startPlayerPosition = new  Vector3(0,-2.31f,0);
     private int CountGroup = 0;
-    private EnemyGroups currentGroup    ;
+    private BaseGroup currentGroup;
+    private GroupType[] levelGroupsTypes = { GroupType.ram};
     void Start()
     {
         GameObject newPlayerShip = Instantiate(OriginalShip);
@@ -22,7 +24,7 @@ public class LevelBaby : MonoBehaviour
     void Update()
     {
         if (currentGroup!= null && currentGroup.Alive == false){
-           if (CountGroup == 3){
+           if (CountGroup == levelGroupsTypes.Length){
                 SceneManager.LoadSceneAsync(SceneIDS.WinSceneID);
             } else {
                 Destroy(currentGroup.gameObject);
