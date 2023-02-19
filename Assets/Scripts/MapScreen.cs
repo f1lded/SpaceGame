@@ -8,4 +8,8 @@ public class MapScreen : MonoBehaviour
     public void StartLevel1() {
         SceneManager.LoadSceneAsync(SceneIDS.levelSceneID);
     }
+    public void CloseGame(){
+        Application.Quit();
+    }
 }
+

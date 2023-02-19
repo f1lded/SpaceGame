@@ -7,12 +7,12 @@ public class LevelBaby : MonoBehaviour
 {
     public GameObject OriginalShip;
      public GameObject EnemyGroup;
-    public GameObject RamGroup;
+    public GameObject ramGroup;
     Vector3 groupPosition = new Vector3(-0.145f,3.7f,0);
     Vector3 startPlayerPosition = new  Vector3(0,-2.31f,0);
     private int CountGroup = 0;
     private BaseGroup currentGroup;
-    private GroupType[] levelGroupsTypes = { GroupType.ram};
+    private GroupType[] levelGroupsTypes = { GroupType.ram,GroupType.shooting   };
     void Start()
     {
         GameObject newPlayerShip = Instantiate(OriginalShip);
@@ -35,8 +35,16 @@ public class LevelBaby : MonoBehaviour
     }
     void MakeNewGroup()
     {
-      GameObject newEnemyGroup = Instantiate(EnemyGroup);
-      newEnemyGroup.transform.position = groupPosition;   
-      currentGroup = newEnemyGroup.GetComponent<EnemyGroups>();
+        if (levelGroupsTypes[CountGroup]==GroupType.shooting){
+            GameObject newEnemyGroup = Instantiate(EnemyGroup);
+            newEnemyGroup.transform.position = groupPosition;   
+            currentGroup = newEnemyGroup.GetComponent<EnemyGroups>();
+        }else if (levelGroupsTypes[CountGroup]==GroupType.ram) {
+            GameObject newEnemyGroup = Instantiate(ramGroup);
+            newEnemyGroup.transform.position = groupPosition;   
+            currentGroup = newEnemyGroup.GetComponent<RamGroup>();
+        }
+        
     }
+
 }

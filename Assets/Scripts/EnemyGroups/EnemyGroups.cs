@@ -7,7 +7,7 @@ public class EnemyGroups : BaseGroup
     public EnemyShip ship1;
     public EnemyShip ship2;
     public EnemyShip ship3; 
-    private float speed = 0.1f;
+    private float speed = 0.07f;
     private int direction = -1;
     private List<EnemyShip> ships = new List<EnemyShip>();
     private System.Random generator = new System.Random();

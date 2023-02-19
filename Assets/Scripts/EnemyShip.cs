@@ -6,7 +6,7 @@ public class EnemyShip : MonoBehaviour
 {   
     public delegate void OnDeath(EnemyShip deadShip);
     public event OnDeath DeathEvent;
-    public int health = 8;
+    public int health = 16;
     public GameObject bullet;
     // Start is called before the first frame update
     void Start()
